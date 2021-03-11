@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Trucks</title>
+</head>
+<body>
+<div class="wrapper">
+        <div class="topbar">
+            <a class="active" href="/main/">Main</a>
+            <a onclick="show('block')">Add truck</a>
+            <a href="#contact">Contact</a>
+            <a href="/register/">Register</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">{{ request.user }} Logout</a>
+            {% else %}
+            <a href="/accounts/login/">login</a>
+            {% endif %}
+            <form class="fint" action="{% url 'main' %}">
+                <input placeholder="search" style="margin-top: 14px;" type="search" name="search">
+                <button style="margin-top: 14px;" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="main-card">
+            <div class="row">
+                {% for truck in trucks %}
+                <div class="column">
+                    <div class="truck-c">
+                        <img src="{{ truck.photo.url }}" width="220" height="160">
+                        <div class="truck_info">
+                            <a>{{ truck.truck_name }}</a><br>
+                            <a>Model year: {{ truck.truck_year }}</a><br>
+                            <a>Mileage: {{ truck.mileage_in_km }} km</a><br>
+                            <a>Adres: {{ truck.location }}</a><br>
+                            <a href="/main/{{ truck.id }}/" class="view-btn">View</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <center>
+            <div class="pagination">
+                     <span class="step-links">
+                         {% if trucks.has_previous %}
+                             <a href="?page=1" class="first">&laquo; first</a>
+                             <a href="?page={{ trucks.previous_page_number }}" class="prev">previous</a>
+                         {% endif %}
+                         <span class="current">
+                             Page {{ trucks.number }} of {{ trucks.paginator.num_pages }}.
+                         </span>
+                         {% if trucks.has_next %}
+                            <a href="?page={{ trucks.next_page_number }}" class="next">next</a>
+                            <a href="?page={{ trucks.paginator.num_pages }}" class="last">last &raquo;</a>
+                         {% endif %}
+                     </span>
+            </div>
+
+    </center>
+
+    <center>
+        <div onclick="show('none')" id="gray"></div>
+        <div id='window'>
+            <img class="close" src="/static/images/close.png" alt="close" onclick="show('none')">
+            <div class="add-form">
+                <form action="{% url 'main' %}" method="POST" enctype="multipart/form-data">
+                    {{ form.as_p }}
+
+                    {% csrf_token %}
+                    <button class="add_btn" type="submit" name="Add_truck">Add truck</button>
+                </form>
+            </div>
+        </div>
+    </center>
+    <script type="text/javascript">
+            function show(state)
+            {
+            document.getElementById('window').style.display = state;
+            document.getElementById('gray').style.display = state;
+            }
+    </script>
+</div>
+</body>
+</html>

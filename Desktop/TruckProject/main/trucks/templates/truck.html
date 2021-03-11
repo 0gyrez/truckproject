@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style_form.css' %}">
+    <title>{{ truck.truck_name }} info</title>
+</head>
+<body>
+    <div class="topbar">
+      <a class="active" href="/main/">Main</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+        <input placeholder="search" style="margin-top: 14px;">
+        <button style="margin-top: 14px;">Search</button>
+   </div>
+    <form action="">
+        <p>{{ truck.truck_name }}</p>
+            <div class="vl"></div>
+            <div class="truck-chars">
+                <a style="font-family: Apple Chancery, fantasy">Chacteristics:</a><br>
+                <a>Year: {{ truck.truck_year }}</a><br>
+                <a>Mileage: {{ truck.mileage_in_km }} km</a><br>
+                <a>Horse power: {{ truck.HP }}</a><br>
+                <a>Torque: {{ truck.torque}} N*m</a><br>
+                <a>Weight: {{ truck.weight }} kg</a><br>
+                <a>Max speed: {{ truck.max_speed }} km/h</a><br>
+                <a>Fuel tank: {{ truck.fuel_tank }} l</a><br>
+                <a>Lifting capasity: {{ truck.lifting_capacity }} kg</a><br>
+            </div>
+        <hr class="hr">
+               <div class="for_btn">
+                      <button type="submit"  class="submit_btn" >Write to seller</button>
+               </div>
+               <div class="back">
+                   <a href="/main/" class="back_btn">Back</a>
+               </div>
+
+
+           <ul class="slider">
+
+               {% for p in truck.photo.all %}
+                <li>
+                    <input type="radio" id="slide{{ forloop.index }}" name="slide" checked>
+                    <label for="slide{{ forloop.index }}"></label>
+                    <img src="{{ p.photo.url }}" alt="Panel 1">
+                </li>
+               {%endfor%}
+
+           </ul>
+    </form>
+</body>
+</html>

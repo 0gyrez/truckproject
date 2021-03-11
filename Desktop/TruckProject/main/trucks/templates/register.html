@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/reg_style.css' %}">
+    <title>Registration</title>
+</head>
+<body>
+   <div class="topbar">
+      <a class="active" href="/main/">Main</a>
+      <a href="#contact">Contact</a>
+      <a href="{% url 'login' %}">Log In</a>
+      <input placeholder="search" style="margin-top: 14px;">
+      <button style="margin-top: 14px;">Search</button>
+   </div>
+   <center>
+      <div class="form">
+          <form  action="." method="POST" name="f1">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button class="btn" type="submit" name="Create account">Create account</button>
+          </form>
+      </div> 
+    </center>
+   
+</body>
+</html>

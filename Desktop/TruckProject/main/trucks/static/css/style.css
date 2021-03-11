@@ -1,0 +1,216 @@
+body{
+  background: url("/static/images/wall.jpg");
+
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.topbar {
+  margin-left: 16px;
+  margin-right: 16px;
+  background-color: #333;
+  overflow: hidden;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  opacity: 0.8;
+}
+
+/* Style the links inside the navigation bar */
+.topbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topbar a:hover {
+  background-color: #fc0303;
+  color: white;
+  cursor: default;
+}
+
+.column {
+    display: inline-block;
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.truck-c{
+  display: flex;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #dae6f5;
+  width: 475px;
+  height: 160px;
+  border: solid 1px;
+  border-radius: 10px;
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+.main-card{
+  margin-top: 5px;
+  margin-left: 90px;
+
+  padding-top: 30px;
+  box-sizing: border-box;
+  padding: 10px;
+
+}
+
+.truck_info{
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  margin-right: 70px;
+  margin-left: 10px;
+}
+
+.view-btn {
+  display: inline-block;
+  color: white;
+  text-decoration: None;
+  background: blue;
+  border-radius: 4px;
+  font-family: Arial;
+  padding: 3px;
+  font-size: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-right: 60px;
+
+}
+
+.input_search{
+  margin-top: 15px;
+}
+.truck_c:hover{
+  height: 170px;
+  width: 460px;
+  transform: scale(1.1);
+}
+
+.add_btn{
+   background: blue;
+   border: 1px solid;
+   border-radius: 3px;
+   padding: 6px 24px;
+   cursor: pointer;
+   color: white;
+}
+.add_btn:hover{
+   background: #4269f5;
+}
+#window{
+  width: 350px;
+  height: 530px;
+  margin: 40px auto;
+  background: #dae6f5;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  opacity: 0.8;
+  z-index: 150;
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.add-form{
+
+  width: 275px;
+  margin: 0px auto 20px auto;
+  text-align: center;
+}
+
+.input{
+  width: 240px;
+  padding: 2px;
+  margin-bottom: 10px;
+  margin-top: 23px; 
+}
+.close{
+  position: absolute;
+  margin: -6px 0 0 140px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.close:hover{
+  width: 43px;
+  height: 43px;
+}
+
+#gray{
+  background-color: rgba(1, 1, 1, 0.75);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  z-index: 100;
+  overflow: auto;
+}
+html{
+  display: block;
+}
+.column{
+  padding-top: 35px;
+}
+.first{
+  display: inline-block;
+  background: blue;
+  border-radius: 8px;
+  padding: 4px;
+  color: white;
+  text-decoration: none;
+}
+.pagination{
+  background-color: #dae6f5;
+  width: 210px;
+  height: 30px;
+  padding: 4px;
+  opacity: 0.8;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.prev{
+  display: inline-block;
+  background: blue;
+  border-radius: 8px;
+  padding: 4px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.next{
+  display: inline-block;
+  background: blue;
+  border-radius: 8px;
+  padding: 4px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.last{
+  display: inline-block;
+  background: blue;
+  border-radius: 8px;
+  padding: 4px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
